@@ -1,6 +1,6 @@
 %define	name	kiki
 %define	version	1.0.2
-%define rel	5
+%define rel	6
 %define	release	%mkrel %{rel}
 %define	Summary	Kiki the nanobot
 
@@ -19,9 +19,12 @@ Patch1:		kiki-1.0.2-python-dynling-fix.patch
 Patch2:		kiki-1.0.2-gcc4-fix.patch
 Patch3:		kiki-1.0.2-python2.5-fix.patch
 Patch4:		kiki-1.0.2-define-path.patch
+Patch5:		kiki-1.0.2-64-bit-fixes.patch
 License:	Public Domain
 Group:		Games/Puzzles
 Summary:	%{Summary}
+%define	_requires_exceptions	%{_libdir}*
+BuildConflicts:	swig
 BuildRequires:	Mesa-common-devel SDL_mixer-devel SDL_image-devel python-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
@@ -39,6 +42,7 @@ and 'Best Overall Game' in the uDevGame Game Programming Contest 2002.
 %patch2 -p1 -b .gcc4
 %patch3 -p1 -b .python2.5
 %patch4 -p1 -b .path
+%patch5 -p1 -b .64bit
 bzcat %{SOURCE2} > story.txt
 rm -rf `find -type d -name CVS`
 
@@ -104,5 +108,3 @@ rm -rf %{buildroot}
 %{_datadir}/applications/mandriva-%{name}.desktop
 %defattr(755,root,root,755)
 %{_gamesbindir}/%{name}*
-
-
