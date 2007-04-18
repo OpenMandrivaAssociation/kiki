@@ -42,7 +42,7 @@ and 'Best Overall Game' in the uDevGame Game Programming Contest 2002.
 %patch2 -p1 -b .gcc4
 %patch3 -p1 -b .python2.5
 %patch4 -p1 -b .path
-%patch5 -p1 -b .64bit
+%patch5 -p1 -b .64bit-fixes
 bzcat %{SOURCE2} > story.txt
 rm -rf `find -type d -name CVS`
 
