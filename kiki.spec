@@ -26,7 +26,6 @@ Summary:	%{Summary}
 %define	_requires_exceptions	%{_libdir}*
 BuildConflicts:	swig
 BuildRequires:	Mesa-common-devel SDL_mixer-devel SDL_image-devel python-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 "kiki the nano bot" is a 3-D puzzle game, basically a mixture
