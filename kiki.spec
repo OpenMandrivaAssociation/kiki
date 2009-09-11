@@ -1,6 +1,6 @@
 %define	name	kiki
 %define	version	1.0.2
-%define rel	7
+%define rel	8
 %define	release	%mkrel %{rel}
 %define	Summary	Kiki the nanobot
 
