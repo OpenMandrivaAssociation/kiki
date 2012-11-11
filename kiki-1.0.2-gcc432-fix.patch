@@ -1,0 +1,60 @@
+Index: kiki/kodilib/src/handler/KPickable.h
+===================================================================
+--- kiki/kodilib/src/handler/KPickable.h
++++ kiki/kodilib/src/handler/KPickable.h	2009-04-03 23:48:52.000000000 +0200
+@@ -8,6 +8,7 @@
+ 
+ #include "KIntrospection.h"
+ #include <vector>
++#include <limits.h>
+ 
+ #define DEBUG_PICKING		false
+ 
+Index: kiki/kodilib/src/tools/KIntrospection.h
+===================================================================
+--- kiki/kodilib/src/tools/KIntrospection.h
++++ kiki/kodilib/src/tools/KIntrospection.h	2009-04-03 23:48:52.000000000 +0200
+@@ -11,6 +11,7 @@
+ #endif
+ 
+ #include <string>
++#include <string.h> // needed by strcmp
+ 
+ // --------------------------------------------------------------------------------------------------------
+ class KClassInfo
+Index: kiki/kodilib/src/tools/KStringTools.cpp
+===================================================================
+--- kiki/kodilib/src/tools/KStringTools.cpp
++++ kiki/kodilib/src/tools/KStringTools.cpp	2009-04-03 23:48:52.000000000 +0200
+@@ -6,6 +6,7 @@
+ #include "KStringTools.h"
+ #include "KVector.h"
+ 
++#include <limits.h>
+ #include <sys/types.h> 	// INT_MAX
+ #include <stdio.h>
+ 
+Index: kiki/kodilib/src/tools/KStringTools.h
+===================================================================
+--- kiki/kodilib/src/tools/KStringTools.h
++++ kiki/kodilib/src/tools/KStringTools.h	2009-04-03 23:48:52.000000000 +0200
+@@ -9,6 +9,7 @@
+ #include <string>
+ #include <vector>
+ #include <stdarg.h>
++#include <string.h>
+ 
+ // --------------------------------------------------------------------------------------------------------
+ 
+Index: kiki/kodilib/src/tools/KXMLTools.cpp
+===================================================================
+--- kiki/kodilib/src/tools/KXMLTools.cpp
++++ kiki/kodilib/src/tools/KXMLTools.cpp	2009-04-03 23:49:51.000000000 +0200
+@@ -7,6 +7,7 @@
+ #include "KConsole.h"
+ #include "KSeparatedMatrix.h"
+ #include <stdio.h>
++#include <stdlib.h>
+ 
+ // --------------------------------------------------------------------------------------------------------
+ std::string kXMLTag ( const std::string & name, const std::string & attributes, int depth )

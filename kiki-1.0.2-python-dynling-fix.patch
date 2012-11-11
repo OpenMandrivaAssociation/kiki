@@ -1,0 +1,13 @@
+--- kiki/linux/Makefile.dynlink	2006-08-16 22:45:44.000000000 +0200
++++ kiki/linux/Makefile	2006-08-16 22:46:02.000000000 +0200
+@@ -16,8 +16,8 @@ GLLIBS = -lglut -lGLU -lGL
+ 
+ OPTFLAGS = -O2
+ 
+-PYTHONHOME = /usr/lib/python$(PYTHON_VERSION)/
+-PYTHONLIBS = $(PYTHONHOME)/config/libpython$(PYTHON_VERSION).a -lutil \
++PYTHONHOME = /usr/lib/python$(PYTHON_VERSION)
++PYTHONLIBS = $(PYTHONHOME)/config/libpython$(PYTHON_VERSION).so -lutil \
+              $(PYTHONHOME)/lib-dynload/math.so \
+ 	     $(PYTHONHOME)/lib-dynload/time.so \
+ 	     $(PYTHONHOME)/lib-dynload/_random.so
