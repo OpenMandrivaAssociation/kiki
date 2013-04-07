@@ -26,7 +26,7 @@ Group:		Games/Puzzles
 Summary:	%{Summary}
 %define	_requires_exceptions	%{_libdir}*
 BuildConflicts:	swig
-BuildRequires:	Mesa-common-devel SDL_mixer-devel SDL_image-devel python-devel
+BuildRequires:	mesa-common-devel SDL_mixer-devel SDL_image-devel python-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
