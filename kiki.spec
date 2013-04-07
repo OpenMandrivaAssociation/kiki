@@ -19,7 +19,6 @@ Patch7:		kiki-1.0.2-initialize-with-glutInit.patch
 License:	Public Domain
 Group:		Games/Puzzles
 Summary:	Kiki the nanobot
-%define	_requires_exceptions	%{_libdir}*
 BuildConflicts:	swig
 BuildRequires:	mesa-common-devel SDL_mixer-devel SDL_image-devel python-devel
 
