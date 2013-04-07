@@ -16,10 +16,10 @@ Patch4:		kiki-1.0.2-define-path.patch
 Patch5:		kiki-1.0.2-64-bit-fixes.patch
 Patch6:		kiki-1.0.2-gcc432-fix.patch
 Patch7:		kiki-1.0.2-initialize-with-glutInit.patch
+Patch8:		kiki-1.0.2-fix-swig.patch
 License:	Public Domain
 Group:		Games/Puzzles
 Summary:	Kiki the nanobot
-BuildConflicts:	swig
 BuildRequires:	mesa-common-devel SDL_mixer-devel SDL_image-devel python-devel
 
 %description
@@ -39,6 +39,7 @@ and 'Best Overall Game' in the uDevGame Game Programming Contest 2002.
 %patch5 -p1 -b .64bit-fixes~
 %patch6 -p1
 %patch7 -p1 -b .glutInit~
+%patch8 -p1 -b .swig~
 bzcat %{SOURCE2} > story.txt
 rm -rf `find -type d -name CVS`
 

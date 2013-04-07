@@ -1,0 +1,11 @@
+--- kiki/SWIG/KikiText.i~	2003-04-09 04:58:32.000000000 +0200
++++ kiki/SWIG/KikiText.i	2013-04-07 14:32:27.410386153 +0200
+@@ -10,7 +10,7 @@ class KikiText
+                         KikiText	( const std::string & = "", bool center = true, int colorIndex = 0 );
+     
+     void		setText		( const std::string & str, int colorIndex = base_color );
+-    const std::string &	getText		() const;
++    const std::string 	getText		() const;
+     
+     void		clear		();
+     bool		isEmpty		() const;
