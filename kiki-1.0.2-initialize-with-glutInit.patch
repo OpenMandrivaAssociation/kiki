@@ -1,0 +1,18 @@
+--- kiki/src/main/main.cpp~	2003-04-11 15:42:29.000000000 +0200
++++ kiki/src/main/main.cpp	2013-04-07 14:15:15.850381526 +0200
+@@ -9,6 +9,7 @@
+ #include <math.h>
+ 
+ #include <SDL.h>
++#include <GL/glut.h>
+ #include "KikiController.h"
+ 
+ // __________________________________________________________________________________________________
+@@ -43,6 +44,7 @@ int main (int argc, char * argv[])
+     // Set video mode
+     width  = 800; 
+     height = 600;
++    glutInit(&argc, argv);
+ #endif
+     
+     screen = SDL_SetVideoMode (width, height, 0, SDL_OPENGL | SDL_RESIZABLE); //  | SDL_FULLSCREEN 
