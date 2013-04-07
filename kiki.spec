@@ -3,7 +3,7 @@ Version:	1.0.2
 Release:	9
 URL:		http://kiki.sourceforge.net/
 Source0:	%{name}-%{version}-src.tgz
-Source2:	%{name}-story.txt.bz2
+Source2:	%{name}-story.txt
 Source3:	http://kiki.cvs.sourceforge.net/*checkout*/kiki/kiki/sounds/title_song.mp3
 Source11:	%{name}-16x16.png
 Source12:	%{name}-32x32.png
@@ -40,7 +40,8 @@ and 'Best Overall Game' in the uDevGame Game Programming Contest 2002.
 %patch6 -p1
 %patch7 -p1 -b .glutInit~
 %patch8 -p1 -b .swig~
-bzcat %{SOURCE2} > story.txt
+
+cp %{SOURCE2} story.txt
 rm -rf `find -type d -name CVS`
 for f in `find -type f -name \*.cpp -o -name \*.h`; do
     grep -q -Ilsr $'\r$' "$f" && sed -e 's/\r$//' -i "$f"
