@@ -63,8 +63,8 @@ install -m644 %{SOURCE3} -D %{buildroot}%{_gamesdatadir}/%{name}/sound/title_son
 mkdir -p %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
-Name=%{Summary}
-Comment=%{Summary}
+Name=%{summary}
+Comment=%{summary}
 Exec=%{_gamesbindir}/%{name}
 Icon=%{name}
 Terminal=false
