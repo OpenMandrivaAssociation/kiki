@@ -42,6 +42,10 @@ and 'Best Overall Game' in the uDevGame Game Programming Contest 2002.
 %patch8 -p1 -b .swig~
 bzcat %{SOURCE2} > story.txt
 rm -rf `find -type d -name CVS`
+for f in `find -type f -name \*.cpp -o -name \*.h`; do
+    grep -q -Ilsr $'\r$' "$f" && sed -e 's/\r$//' -i "$f"
+done
+
 
 %build
 cd kodilib/linux; %make OPTFLAGS="%{optflags}" PYTHONHOME=%{py_platlibdir}; cd -
