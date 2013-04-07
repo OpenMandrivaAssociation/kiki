@@ -1,12 +1,6 @@
-%define	name	kiki
-%define	version	1.0.2
-%define rel	8
-%define	release	%mkrel %{rel}
-%define	Summary	Kiki the nanobot
-
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:		kiki
+Version:	1.0.2
+Release:	9
 URL:		http://kiki.sourceforge.net/
 Source0:	%{name}-%{version}-src.tgz
 Source2:	%{name}-story.txt.bz2
@@ -24,11 +18,10 @@ Patch6:		kiki-1.0.2-gcc432-fix.patch
 Patch7:		kiki-1.0.2-initialize-with-glutInit.patch
 License:	Public Domain
 Group:		Games/Puzzles
-Summary:	%{Summary}
+Summary:	Kiki the nanobot
 %define	_requires_exceptions	%{_libdir}*
 BuildConflicts:	swig
 BuildRequires:	mesa-common-devel SDL_mixer-devel SDL_image-devel python-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 "kiki the nano bot" is a 3-D puzzle game, basically a mixture
@@ -39,12 +32,12 @@ and 'Best Overall Game' in the uDevGame Game Programming Contest 2002.
 
 %prep
 %setup -q -n %{name}
-%patch0 -p1 -b .mdkconf
-%patch1 -p1 -b .dynlink
-%patch2 -p1 -b .gcc4
-%patch3 -p1 -b .python2.5
-%patch4 -p1 -b .path
-%patch5 -p1 -b .64bit-fixes
+%patch0 -p1 -b .mdkconf~
+%patch1 -p1 -b .dynlink~
+%patch2 -p1 -b .gcc4~
+%patch3 -p1 -b .python2.5~
+%patch4 -p1 -b .path~
+%patch5 -p1 -b .64bit-fixes~
 %patch6 -p1
 %patch7 -p1 -b .glutInit~
 bzcat %{SOURCE2} > story.txt
@@ -55,8 +48,6 @@ cd kodilib/linux; %make OPTFLAGS="%{optflags}" PYTHONHOME=%{py_platlibdir}; cd -
 cd linux; %make OPTFLAGS="%{optflags}" KIKI_HOME="%{_gamesdatadir}/%{name}" PYTHON_VERSION=%{python_version} PYTHONHOME=%{py_platlibdir} GLLIBS="-lglut -lGLU -lGL"; cd -
 
 %install
-rm -rf %{buildroot}
-
 install -m755 linux/%{name} -D %{buildroot}%{_gamesbindir}/%{name}
 
 install -d %{buildroot}%{_gamesdatadir}/%{name}
@@ -80,19 +71,6 @@ EOF
 install -m644 %{SOURCE11} -D %{buildroot}%{_miconsdir}/%{name}.png
 install -m644 %{SOURCE12} -D %{buildroot}%{_iconsdir}/%{name}.png
 install -m644 %{SOURCE13} -D %{buildroot}%{_liconsdir}/%{name}.png
-
-%if %mdkversion < 200900
-%post
-%update_menus
-%endif
-
-%if %mdkversion < 200900
-%postun
-%clean_menus
-%endif
-
-%clean
-rm -rf %{buildroot}
 
 %files
 %defattr(644,root,root,755)
