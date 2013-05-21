@@ -1,7 +1,10 @@
+Summary:	Kiki the nanobot
 Name:		kiki
 Version:	1.0.2
 Release:	9
-URL:		http://kiki.sourceforge.net/
+License:	Public Domain
+Group:		Games/Puzzles
+Url:		http://kiki.sourceforge.net/
 Source0:	%{name}-%{version}-src.tgz
 Source2:	%{name}-story.txt
 Source3:	http://kiki.cvs.sourceforge.net/*checkout*/kiki/kiki/sounds/title_song.mp3
@@ -16,9 +19,6 @@ Patch4:		kiki-1.0.2-define-path.patch
 Patch5:		kiki-1.0.2-64-bit-fixes.patch
 Patch6:		kiki-1.0.2-gcc432-fix.patch
 Patch7:		kiki-1.0.2-initialize-with-glutInit.patch
-License:	Public Domain
-Group:		Games/Puzzles
-Summary:	Kiki the nanobot
 BuildConflicts:	swig
 BuildRequires:	mesa-common-devel SDL_mixer-devel SDL_image-devel python-devel
 
@@ -30,23 +30,14 @@ kiki has won the Categories 'Best Graphics', 'Best Originality'
 and 'Best Overall Game' in the uDevGame Game Programming Contest 2002.
 
 %prep
-%setup -q -n %{name}
-%patch0 -p1 -b .mdkconf~
-%patch1 -p1 -b .dynlink~
-%patch2 -p1 -b .gcc4~
-%patch3 -p1 -b .python2.5~
-%patch4 -p1 -b .path~
-%patch5 -p1 -b .64bit-fixes~
-%patch6 -p1
-%patch7 -p1 -b .glutInit~
-%patch8 -p1 -b .swig~
+%setup -qn %{name}
+%apply_patches
 
 cp %{SOURCE2} story.txt
 rm -rf `find -type d -name CVS`
 for f in `find -type f -name \*.cpp -o -name \*.h`; do
-    grep -q -Ilsr $'\r$' "$f" && sed -e 's/\r$//' -i "$f"
+	grep -q -Ilsr $'\r$' "$f" && sed -e 's/\r$//' -i "$f"
 done
-
 
 %build
 cd kodilib/linux; %make OPTFLAGS="%{optflags}" PYTHONHOME=%{py_platlibdir}; cd -
@@ -59,9 +50,8 @@ install -d %{buildroot}%{_gamesdatadir}/%{name}
 cp -r sound py %{buildroot}%{_gamesdatadir}/%{name}
 install -m644 %{SOURCE3} -D %{buildroot}%{_gamesdatadir}/%{name}/sound/title_song.mp3
 
-
 mkdir -p %{buildroot}%{_datadir}/applications
-cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
+cat > %{buildroot}%{_datadir}/applications/%{name}.desktop << EOF
 [Desktop Entry]
 Name=%{summary}
 Comment=%{summary}
@@ -78,12 +68,10 @@ install -m644 %{SOURCE12} -D %{buildroot}%{_iconsdir}/%{name}.png
 install -m644 %{SOURCE13} -D %{buildroot}%{_liconsdir}/%{name}.png
 
 %files
-%defattr(644,root,root,755)
 %doc linux/Readme.txt story.txt Thanks.txt uDevGame\ Readme.txt
+%{_gamesbindir}/%{name}*
 %{_gamesdatadir}/%{name}
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
-%{_datadir}/applications/mandriva-%{name}.desktop
-%defattr(755,root,root,755)
-%{_gamesbindir}/%{name}*
+%{_datadir}/applications/%{name}.desktop
