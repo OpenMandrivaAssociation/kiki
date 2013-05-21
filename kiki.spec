@@ -20,7 +20,10 @@ Patch5:		kiki-1.0.2-64-bit-fixes.patch
 Patch6:		kiki-1.0.2-gcc432-fix.patch
 Patch7:		kiki-1.0.2-initialize-with-glutInit.patch
 BuildConflicts:	swig
-BuildRequires:	mesa-common-devel SDL_mixer-devel SDL_image-devel python-devel
+BuildRequires:	pkgconfig(glu)
+BuildRequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(SDL_mixer)
+BuildRequires:	pkgconfig(SDL_image)
 
 %description
 "kiki the nano bot" is a 3-D puzzle game, basically a mixture
