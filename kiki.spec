@@ -21,6 +21,7 @@ Patch6:		kiki-1.0.2-gcc432-fix.patch
 Patch7:		kiki-1.0.2-initialize-with-glutInit.patch
 BuildConflicts:	swig
 BuildRequires:	pkgconfig(glu)
+BuildRequires:	pkgconfig(glut)
 BuildRequires:	pkgconfig(python)
 BuildRequires:	pkgconfig(SDL_mixer)
 BuildRequires:	pkgconfig(SDL_image)
