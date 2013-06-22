@@ -39,7 +39,7 @@ and 'Best Overall Game' in the uDevGame Game Programming Contest 2002.
 
 cp %{SOURCE2} story.txt
 rm -rf `find -type d -name CVS`
-for f in `find -type f -name \*.cpp -o -name \*.h`; do
+for f in `find -type f -name \*.cpp -o -name \*.h -o -name \*.py`; do
 	grep -q -Ilsr $'\r$' "$f" && sed -e 's/\r$//' -i "$f"
 done
 
