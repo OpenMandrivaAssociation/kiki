@@ -1,4 +1,4 @@
-Summary:	Kiki the nanobot
+Summary:	The nanobot
 Name:		kiki
 Version:	1.0.2
 Release:	9
