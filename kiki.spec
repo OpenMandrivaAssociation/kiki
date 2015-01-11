@@ -1,3 +1,6 @@
+%define py2_platlibdir          %(%{__python2} -c 'import distutils.sysconfig; print distutils.sysconfig.get_python_lib(standard_lib=1,plat_specific=1)' 2>/dev/null || echo PYTHON-LIBDIR-NOT-FOUND)
+
+
 Summary:	The nanobot
 Name:		kiki
 Version:	1.0.2
@@ -22,7 +25,7 @@ Patch7:		kiki-1.0.2-initialize-with-glutInit.patch
 BuildConflicts:	swig
 BuildRequires:	pkgconfig(glu)
 BuildRequires:	pkgconfig(glut)
-BuildRequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(python2)
 BuildRequires:	pkgconfig(SDL_mixer)
 BuildRequires:	pkgconfig(SDL_image)
 
@@ -44,8 +47,8 @@ for f in `find -type f -name \*.cpp -o -name \*.h -o -name \*.py`; do
 done
 
 %build
-cd kodilib/linux; %make OPTFLAGS="%{optflags}" PYTHONHOME=%{py_platlibdir}; cd -
-cd linux; %make OPTFLAGS="%{optflags}" KIKI_HOME="%{_gamesdatadir}/%{name}" PYTHON_VERSION=%{python_version} PYTHONHOME=%{py_platlibdir} GLLIBS="-lglut -lGLU -lGL"; cd -
+cd kodilib/linux; %make OPTFLAGS="%{optflags}" PYTHONHOME=%{py2_platlibdir}; cd -
+cd linux; %make OPTFLAGS="%{optflags}" KIKI_HOME="%{_gamesdatadir}/%{name}" PYTHON_VERSION=%{py2_ver} PYTHONHOME=%{py2_platlibdir} GLLIBS="-lglut -lGLU -lGL"; cd -
 
 %install
 install -m755 linux/%{name} -D %{buildroot}%{_gamesbindir}/%{name}
