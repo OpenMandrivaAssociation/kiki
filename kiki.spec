@@ -4,7 +4,7 @@
 Summary:	The nanobot
 Name:		kiki
 Version:	1.0.2
-Release:	17
+Release:	18
 License:	Public Domain
 Group:		Games/Puzzles
 Url:		http://kiki.sourceforge.net/
