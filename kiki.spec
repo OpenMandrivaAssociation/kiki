@@ -1,5 +1,6 @@
 %define py2_platlibdir          %(%{__python2} -c 'import distutils.sysconfig; print distutils.sysconfig.get_python_lib(standard_lib=1,plat_specific=1)' 2>/dev/null || echo PYTHON-LIBDIR-NOT-FOUND)
 
+%define debug_package %{nil}
 
 Summary:	The nanobot
 Name:		kiki
