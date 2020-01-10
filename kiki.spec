@@ -39,7 +39,7 @@ and 'Best Overall Game' in the uDevGame Game Programming Contest 2002.
 
 %prep
 %setup -qn %{name}
-%apply_patches
+%autopatch -p1
 
 cp %{SOURCE2} story.txt
 rm -rf `find -type d -name CVS`
