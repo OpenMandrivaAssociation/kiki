@@ -8,7 +8,7 @@ Version:	1.0.2
 Release:	20
 License:	Public Domain
 Group:		Games/Puzzles
-Url:		http://kiki.sourceforge.net/
+Url:		https://kiki.sourceforge.net/
 Source0:	%{name}-%{version}-src.tgz
 Source2:	%{name}-story.txt
 Source3:	http://kiki.cvs.sourceforge.net/*checkout*/kiki/kiki/sounds/title_song.mp3
